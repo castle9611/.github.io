@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作助手 - 效率工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+    <!-- 快捷键提示 -->
+    <div id="shortcut-hint" class="shortcut-hint">
+        <span>Ctrl+Shift+H: 隐藏/显示 | Esc: 返回</span>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📊</span>
+                <span class="logo-text">工作助手</span>
+            </div>
+            <nav class="nav-tabs" role="tablist" aria-label="主要功能导航">
+                <button class="nav-tab active" data-tab="games" role="tab" aria-selected="true" aria-controls="games">
+                    <span class="tab-icon" aria-hidden="true">🎮</span>
+                    <span class="tab-text">小游戏</span>
+                </button>
+                <button class="nav-tab" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools">
+                    <span class="tab-icon" aria-hidden="true">🛠️</span>
+                    <span class="tab-text">实用工具</span>
+                </button>
+                <button class="nav-tab" data-tab="entertainment" role="tab" aria-selected="false" aria-controls="entertainment">
+                    <span class="tab-icon" aria-hidden="true">🎨</span>
+                    <span class="tab-text">放松娱乐</span>
+                </button>
+                <button class="nav-tab" data-tab="links" role="tab" aria-selected="false" aria-controls="links">
+                    <span class="tab-icon" aria-hidden="true">🔗</span>
+                    <span class="tab-text">有趣网站</span>
+                </button>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle" class="control-btn" title="切换主题" aria-label="切换明暗主题">
+                    <span class="control-icon" aria-hidden="true">🌙</span>
+                </button>
+                <button id="fullscreen-toggle" class="control-btn" title="全屏" aria-label="切换全屏模式">
+                    <span class="control-icon" aria-hidden="true">⛶</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 游戏模块 -->
+            <section id="games" class="content-section active">
+                <div class="section-header">
+                    <h2>休闲小游戏</h2>
+                    <p>工作间隙放松一下，提升专注力</p>
+                </div>
+                <div class="games-grid">
+                    <div class="game-card" data-game="2048" tabindex="0" role="button" aria-label="2048数字合并游戏">
+                        <div class="game-icon" aria-hidden="true">🔢</div>
+                        <h3>2048</h3>
+                        <p>经典数字合并游戏</p>
+                    </div>
+                    <div class="game-card" data-game="memory" tabindex="0" role="button" aria-label="记忆配对游戏">
+                        <div class="game-icon" aria-hidden="true">🧠</div>
+                        <h3>记忆配对</h3>
+                        <p>考验记忆力的卡片游戏</p>
+                    </div>
+                    <div class="game-card" data-game="guess" tabindex="0" role="button" aria-label="数字猜谜游戏">
+                        <div class="game-icon" aria-hidden="true">🎯</div>
+                        <h3>数字猜谜</h3>
+                        <p>1-100数字猜猜看</p>
+                    </div>
+                    <div class="game-card" data-game="snake" tabindex="0" role="button" aria-label="贪吃蛇游戏">
+                        <div class="game-icon" aria-hidden="true">🐍</div>
+                        <h3>贪吃蛇</h3>
+                        <p>经典贪吃蛇游戏</p>
+                    </div>
+                    <div class="game-card" data-game="tetris" tabindex="0" role="button" aria-label="俄罗斯方块游戏">
+                        <div class="game-icon" aria-hidden="true">🧩</div>
+                        <h3>俄罗斯方块</h3>
+                        <p>经典益智游戏</p>
+                    </div>
+                    <div class="game-card" data-game="minesweeper" tabindex="0" role="button" aria-label="扫雷游戏">
+                        <div class="game-icon" aria-hidden="true">💣</div>
+                        <h3>扫雷</h3>
+                        <p>逻辑推理游戏</p>
+                    </div>
+                    <div class="game-card" data-game="puzzle" tabindex="0" role="button" aria-label="滑块拼图">
+                        <div class="game-icon" aria-hidden="true">🧩</div>
+                        <h3>滑块拼图</h3>
+                        <p>3x3/4x4 拼图挑战</p>
+                    </div>
+                    <div class="game-card" data-game="link" tabindex="0" role="button" aria-label="连连看">
+                        <div class="game-icon" aria-hidden="true">🔗</div>
+                        <h3>连连看</h3>
+                        <p>两次拐弯以内连接消除</p>
+                    </div>
+                    <div class="game-card" data-game="shooter" tabindex="0" role="button" aria-label="雷霆战机">
+                        <div class="game-icon" aria-hidden="true">🚀</div>
+                        <h3>雷霆战机</h3>
+                        <p>纵版射击得分</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工具模块 -->
+            <section id="tools" class="content-section">
+                <div class="section-header">
+                    <h2>实用工具</h2>
+                    <p>提升工作效率的小工具</p>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool="pomodoro" tabindex="0" role="button" aria-label="番茄钟计时器">
+                        <div class="tool-icon" aria-hidden="true">⏰</div>
+                        <h3>番茄钟</h3>
+                        <p>25分钟专注工作法</p>
+                    </div>
+                    <div class="tool-card" data-tool="todo" tabindex="0" role="button" aria-label="待办事项清单">
+                        <div class="tool-icon" aria-hidden="true">📝</div>
+                        <h3>待办清单</h3>
+                        <p>管理你的任务</p>
+                    </div>
+                    <div class="tool-card" data-tool="calculator" tabindex="0" role="button" aria-label="计算器工具">
+                        <div class="tool-icon" aria-hidden="true">🧮</div>
+                        <h3>计算器</h3>
+                        <p>快速计算工具</p>
+                    </div>
+                    <div class="tool-card" data-tool="random" tabindex="0" role="button" aria-label="随机工具">
+                        <div class="tool-icon" aria-hidden="true">🎲</div>
+                        <h3>随机工具</h3>
+                        <p>随机数、颜色生成</p>
+                    </div>
+                    <div class="tool-card" data-tool="password" tabindex="0" role="button" aria-label="密码生成器">
+                        <div class="tool-icon" aria-hidden="true">🔐</div>
+                        <h3>密码生成器</h3>
+                        <p>生成安全密码</p>
+                    </div>
+                    <div class="tool-card" data-tool="qr" tabindex="0" role="button" aria-label="二维码生成器">
+                        <div class="tool-icon" aria-hidden="true">📱</div>
+                        <h3>二维码生成器</h3>
+                        <p>生成和扫描二维码</p>
+                    </div>
+                    <div class="tool-card" data-tool="converter" tabindex="0" role="button" aria-label="单位转换器">
+                        <div class="tool-icon" aria-hidden="true">📏</div>
+                        <h3>单位转换器</h3>
+                        <p>长度、重量、温度转换</p>
+                    </div>
+                    <div class="tool-card" data-tool="text" tabindex="0" role="button" aria-label="文本处理工具">
+                        <div class="tool-icon" aria-hidden="true">📝</div>
+                        <h3>文本处理</h3>
+                        <p>文本转换、编码解码</p>
+                    </div>
+                    <div class="tool-card" data-tool="time" tabindex="0" role="button" aria-label="时间管理工具">
+                        <div class="tool-icon" aria-hidden="true">⏰</div>
+                        <h3>时间管理</h3>
+                        <p>时间计算、倒计时器</p>
+                    </div>
+                    <div class="tool-card" data-tool="file" tabindex="0" role="button" aria-label="文件处理工具">
+                        <div class="tool-icon" aria-hidden="true">📁</div>
+                        <h3>文件处理</h3>
+                        <p>文件转换、格式处理</p>
+                    </div>
+                    <div class="tool-card" data-tool="notes" tabindex="0" role="button" aria-label="智能笔记">
+                        <div class="tool-icon" aria-hidden="true">📚</div>
+                        <h3>智能笔记</h3>
+                        <p>快速记录、搜索整理</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 娱乐模块 -->
+            <section id="entertainment" class="content-section">
+                <div class="section-header">
+                    <h2>放松娱乐</h2>
+                    <p>工作之余的视觉享受</p>
+                </div>
+                <div class="entertainment-grid">
+                    <div class="entertainment-card" data-entertainment="matrix" tabindex="0" role="button" aria-label="数字雨效果">
+                        <div class="entertainment-icon" aria-hidden="true">🌧️</div>
+                        <h3>数字雨</h3>
+                        <p>Matrix风格屏保</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="particles" tabindex="0" role="button" aria-label="粒子动画效果">
+                        <div class="entertainment-icon" aria-hidden="true">✨</div>
+                        <h3>粒子动画</h3>
+                        <p>交互式粒子效果</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="visualizer" tabindex="0" role="button" aria-label="音乐可视化效果">
+                        <div class="entertainment-icon" aria-hidden="true">🎵</div>
+                        <h3>音乐可视化</h3>
+                        <p>音频频谱显示</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="colors" tabindex="0" role="button" aria-label="颜色生成器">
+                        <div class="entertainment-icon" aria-hidden="true">🎨</div>
+                        <h3>颜色生成器</h3>
+                        <p>渐变色彩展示</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="typing" tabindex="0" role="button" aria-label="打字练习">
+                        <div class="entertainment-icon" aria-hidden="true">⌨️</div>
+                        <h3>打字练习</h3>
+                        <p>提升打字速度</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="maze" tabindex="0" role="button" aria-label="迷宫生成器">
+                        <div class="entertainment-icon" aria-hidden="true">🏰</div>
+                        <h3>迷宫生成器</h3>
+                        <p>生成随机迷宫</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="pixel" tabindex="0" role="button" aria-label="像素画板">
+                        <div class="entertainment-icon" aria-hidden="true">🎭</div>
+                        <h3>像素画板</h3>
+                        <p>简单的像素艺术创作</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="meditation" tabindex="0" role="button" aria-label="冥想引导">
+                        <div class="entertainment-icon" aria-hidden="true">🧘</div>
+                        <h3>冥想引导</h3>
+                        <p>放松身心，专注当下</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="breathing" tabindex="0" role="button" aria-label="呼吸练习">
+                        <div class="entertainment-icon" aria-hidden="true">🌬️</div>
+                        <h3>呼吸练习</h3>
+                        <p>调节呼吸，缓解压力</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="whitenoise" tabindex="0" role="button" aria-label="白噪音">
+                        <div class="entertainment-icon" aria-hidden="true">🔊</div>
+                        <h3>白噪音</h3>
+                        <p>专注工作，屏蔽干扰</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="coloring" tabindex="0" role="button" aria-label="数字涂色书">
+                        <div class="entertainment-icon" aria-hidden="true">🎨</div>
+                        <h3>数字涂色书</h3>
+                        <p>放松心情，发挥创意</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="mandala" tabindex="0" role="button" aria-label="曼陀罗生成器">
+                        <div class="entertainment-icon" aria-hidden="true">🌀</div>
+                        <h3>曼陀罗生成器</h3>
+                        <p>创造美丽的对称图案</p>
+                    </div>
+                    <div class="entertainment-card" data-entertainment="kaleidoscope" tabindex="0" role="button" aria-label="数字万花筒">
+                        <div class="entertainment-icon" aria-hidden="true">🔮</div>
+                        <h3>数字万花筒</h3>
+                        <p>移动鼠标创造美丽图案</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 有趣网站模块 -->
+            <section id="links" class="content-section">
+                <div class="section-header">
+                    <h2>有趣网站</h2>
+                    <p>收藏和分享有趣的网站链接</p>
+                </div>
+                <div class="links-controls">
+                    <button id="add-link-btn" class="add-link-btn">
+                        <span class="btn-icon">➕</span>
+                        添加网站
+                    </button>
+                    <div class="links-search">
+                        <input type="text" id="links-search" placeholder="搜索网站..." aria-label="搜索网站">
+                    </div>
+                </div>
+                <div class="links-grid" id="links-grid">
+                    <!-- 动态生成的网站卡片 -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- 模态框容器 -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">标题</h3>
+                <button class="modal-close" id="modal-close">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本文件 -->
+    <script src="scripts.js"></script>
+    <script src="games.js"></script>
+    <script src="tools.js"></script>
+    <script src="entertainment.js"></script>
+    <script src="links.js"></script>
+    <script src="enhancements.js"></script>
+</body>
+</html>
